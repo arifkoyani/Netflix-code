@@ -139,11 +139,15 @@ function RegisterForm() {
             <Link href={"/Form/getuser"}>
             <span className="text-blue-800 font-bold mx-1">Search User</span>
             </Link> 
+
+            <Link href={"/Form/updateuser"}>
+            <span className="text-blue-800 font-bold mx-1">Update Email</span>
+            </Link> 
           </p>
         </div>
-        <button className="px-1 mt-2 py-1 bg-red-500 text-white text-[7px] font-medium rounded-md shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300">
+        <Link href={"/Form/deleteuser"} className="px-1 mt-2 py-1 bg-red-500 text-white text-[7px] font-medium rounded-md shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 transition duration-300">
           Delete User
-        </button>
+        </Link>
       
       </div>
     </div>

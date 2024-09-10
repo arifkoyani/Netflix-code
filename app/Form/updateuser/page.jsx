@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -26,7 +27,7 @@ const UpdateEmail = () => {
         }),
       });
         const {message}=await respo.json();
-      if (respo.ok) {
+      if (respo) {
         toast(message);
         setCurrentEmail("");
         setNewEmail("");
@@ -72,6 +73,7 @@ const UpdateEmail = () => {
         >
           Update Email
         </button>
+        <Link href="/" className="text-blue-800 font-bold mx-1">Register</Link>
         <ToastContainer />
 
         {error && <p className="mt-2 text-red-500 text-sm">{error}</p>}
