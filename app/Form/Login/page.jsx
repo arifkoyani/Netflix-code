@@ -2,12 +2,14 @@
 import React from "react";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-import { WavyBackground } from "../../components/uii/wavy-background";
+// import { WavyBackground } from "../../components/uii/wavy-background";
 const login = () => {
   const [email,setemail]=useState("");
   const [password,setpassword]=useState("");
   const [error, seterror] = useState("");
+  const router=useRouter()
 
 
   async function HandleForm(e){
@@ -22,30 +24,21 @@ const login = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email,password }),
       });
-      const { user } = await emailres.json();
-        console.log("usser is :",user)
 
-      if (user) {
-        setemail("")
-        setpassword("")
-        seterror("");
-        alert("successfully Logined")
+      const { message ,login} = await emailres.json();
 
+      if(login){
+        router.push("https://www.youtube.com/watch?v=mgnaqAQa7oI")
       }
-      else{
-        seterror("user is Not Exist");
-
-
-      }
-
+        seterror(message)
   }
   return (
     <div>
-<WavyBackground className="w-screen h-screen mx-auto pb-40">
+{/* <WavyBackground className="w-screen h-screen mx-auto pb-40"> */}
       
-<div className="min-h-screen flex items-center justify-center bg-transparent">
+<div className="min-h-screen flex items-center justify-center bg-black">
      <div className="w-full max-w-md bg-transparent rounded-lg shadow-md p-8">
         <h2 className="text-2xl font-bold text-center mb-6">Enter the details</h2>
        <form  onSubmit={HandleForm}>
@@ -91,7 +84,6 @@ const login = () => {
           </p>
           <p className="text-[13px] text-white">
             Don't have an Account?
-            
             <Link href={"/"}>
             <span className="text-blue-800 font-bold mx-1">Register</span>
             </Link> 
@@ -108,7 +100,7 @@ const login = () => {
      </div>
 
       
-    </WavyBackground>
+    {/* </WavyBackground> */}
     </div>
   )
 }

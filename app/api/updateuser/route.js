@@ -17,7 +17,6 @@ export async function PUT(req) {
         console.log("update user :",updateduser);
 
         return NextResponse.json({ message: 'Email updated successfully' }, { status: 200 });
-
     }
 
     else{

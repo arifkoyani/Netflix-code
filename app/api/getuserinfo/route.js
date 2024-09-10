@@ -8,7 +8,7 @@ export async function GET(req) {
   
   try {
     const user = await User.findOne({ email });
-    console.log(user);
+    console.log(user);  
 
     if (user) {
       return NextResponse.json(user, { status: 200 });

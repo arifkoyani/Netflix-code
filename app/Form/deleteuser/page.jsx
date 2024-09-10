@@ -19,7 +19,6 @@ const DeleteUser = () => {
       setError("Enter the Email");
       return;
     }
-
     try {
       setLoading(true); 
       const res = await fetch("/api/deleteuser", {
@@ -31,12 +30,9 @@ const DeleteUser = () => {
       });
 
       const {message}= await res.json();
-      
-      if(res.ok){
+
         setmessage(message)
-      }
-
-
+ 
     } catch (error) {
       console.log("Error deleting user:", error);
     } finally {

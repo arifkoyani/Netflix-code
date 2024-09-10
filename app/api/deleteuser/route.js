@@ -11,12 +11,12 @@ export async function DELETE(req) {
 
     if (userid) {
       console.log("user delete :", userid);
-      return NextResponse.json({ message: "Success" }, { status: 200 });
+      return NextResponse.json({ message: "Delete Success" }, { status: 200 });
+
     } else {
       console.log("user is not available ", userid);
-      return NextResponse.json({ message: "Not Success" }, { status: 404 });
+      return NextResponse.json({ message: "User Not Found!" }, { status: 400 });
     }
-
 
   } catch (error) {
     return NextResponse.json(
