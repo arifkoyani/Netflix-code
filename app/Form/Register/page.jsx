@@ -44,9 +44,9 @@ function RegisterForm() {
         },
         body: JSON.stringify({ name, email, password }),
       });
-
-      if (response.ok) {
-        seterror("");
+        const {messsage}=await response.json();
+      if (response) {
+        seterror(messsage);
         setName("");
         setEmail("");
         setPassword("");

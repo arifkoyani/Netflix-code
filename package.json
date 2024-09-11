@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@nextui-org/date-picker": "^2.1.6",
+    "@nextui-org/react": "^2.4.6",
+    "@nextui-org/tabs": "^2.0.35",
     "@react-aria/utils": "^3.25.2",
     "bcryptjs": "^2.4.3",
     "clsx": "^2.1.1",

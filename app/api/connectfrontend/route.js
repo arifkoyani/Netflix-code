@@ -8,12 +8,21 @@ export async function POST(req) {
   await ConnectMongoDB();
   const newpassword = await bcrypt.hash(password, 10);
   try {
+    const existEmail = await User.findOne({ email });
+    console.log(existEmail)
+    if (existEmail) {
+      return NextResponse.json({ message: "Email already exists" }, { status: 400 });
+    }
+    else{
+      const data = await User.create({ name, email, password:newpassword });
+      return NextResponse.json({ message: "success" }, { status: 200 });
+
+    }
+    
 
 
-    const data = await User.create({ name, email, password:newpassword });
-    // console.log(data,'data');
 
-    return NextResponse.json({ message: "success" }, { status: 200 });
+
   } catch (error) {
     console.log(error, "error===>>>");
 

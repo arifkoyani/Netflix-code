@@ -1,10 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
-import {Button, ButtonGroup} from "@nextui-org/button";
 
 export default function Dashboard() {
   const [subscriptionDate, setSubscriptionDate] = useState("");
-  const [username, setUsername] = useState("Netflix");
+  const [username, setUsername] = useState("N");
   const [service, setService] = useState("");
   const [price, setPrice] = useState("");
   const [daysElapsed, setDaysElapsed] = useState(0);
